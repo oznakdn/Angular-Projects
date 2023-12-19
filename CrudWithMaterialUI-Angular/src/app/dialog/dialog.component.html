@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Add Product Form</h1>
+<div mat-dialog-content>
+    <form [formGroup]="productForm">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input formControlName="productName" matInput placeholder="Product name">
+        <mat-icon matSuffix>inbox</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Product Category</mat-label>
+       <select formControlName="category" matNativeControl placeholder="Category">
+          <option value="Fruits">Fruits</option>
+          <option value="Vegetables">Vegetables</option>
+          <option value="Electronics">Electronics</option>
+        </select>
+        <mat-icon matSuffix>storage</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input formControlName="date" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <label><h1>Product Freshness</h1></label>
+      <mat-radio-group formControlName="freshness" class="example-radio-group">
+      <mat-radio-button class="example-radio-button" *ngFor="let fresh of fressnessList" [value]="fresh">{{fresh}}</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <input formControlName="price" matInput placeholder="Price" type="number">
+        <mat-icon matSuffix>attach_money</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Comment</mat-label>
+        <textarea formControlName="comment" matInput cols="30" rows="4" placeholder="Commet"></textarea>
+        <mat-icon matSuffix>message</mat-icon>
+      </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button mat-raised-button color="primary" (click)="addProduct()">{{actionBtn}}</button>
+
+</div>

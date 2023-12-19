@@ -1,0 +1,67 @@
+
+<div class="container">
+  <h1 class="text-center text-primary">Angular + Asp.Net Core Crud</h1>
+  <div class="row">
+      <div class="col-6 mt-5">
+        <!-- <form #form="ngForm" (ngSubmit)="onSubmit()"></form> -->
+        <form>
+          <div class="form-group col-4">
+            <label for="" class="form-label">Card Name</label>
+            <input type="text" class="form-control" name="cardName" [(ngModel)]="card.cardHolderName">
+          </div>
+
+          <div class="form-group col-4">
+            <label for="" class="form-label">Card Number</label>
+            <input type="text" class="form-control" name="cardNumber" [(ngModel)]="card.cardNumber">
+          </div>
+          <div class="form-group col-4">
+              <div class="row">
+                <div class="col-4">
+                  <label class="form-label">Month</label>
+                  <input type="text" class="form-control" name="expiryMonth" [(ngModel)]="card.expiryMonth">
+                </div>
+                <div class="col-4">
+                  <label class="form-label">Year</label>
+                  <input type="text" class="form-control" name="expiryYear" [(ngModel)]="card.expiryYear">
+                </div>
+                <div class="col-4">
+                   <label class="form-label">CVC</label>
+                   <input type="text" class="form-control" name="cvc" [(ngModel)]="card.cvc">
+                </div>
+              </div>
+              <div class="form-group">
+                <button (click)="addCard()" class="btn btn-dark mt-3">Save</button>
+              </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-6 mt-5">
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th>Card Name</th>
+                <th>Card Number</th>
+                <th>Expiry Month</th>
+                <th>Expiry Year</th>
+                <th>Cvc</th>
+                <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cards" (click)="populateForm(item)">
+              <td>{{item.cardHolderName}}</td>
+              <td>{{item.cardNumber}}</td>
+              <td>{{item.expiryMonth}}</td>
+              <td>{{item.expiryYear}}</td>
+              <td>{{item.cvc}}</td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteCard(item.id)"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+          </tbody>
+
+         </table>
+      </div>
+  </div>
+</div>
+

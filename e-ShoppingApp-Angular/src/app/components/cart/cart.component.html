@@ -1,0 +1,58 @@
+<ng-container *ngIf="products.length !=0">
+  <div class="container">
+    <div class="card-table">
+      <div class="cart-product">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+            <th>Sr. No</th>
+            <th>Product Name</th>
+            <th>Product Image</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of products">
+              <td>{{item.id}}</td>
+              <td>{{item.title}}</td>
+              <td><img src="{{item.image}}" style="width:120px;"></td>
+              <td style="width:25%;">{{item.description}}</td>
+              <td style="width:12%;">{{item.price}}</td>
+              <td style="width:12%;">{{item.quantity}}</td>
+              <td style="width:12%;">{{item.total}}</td>
+              <td>
+                <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4"></td>
+              <td><button (click)=" emptyCart()" class="btn btn-danger btn-sm">Empty Cart</button></td>
+              <td><button routerLink="/product" class="btn btn-primary btn-sm">Shop More</button></td>
+              <td><button class="btn btn-success btn-sm">Checkout</button></td>
+              <td><strong>Grand Total: ${{grandTotal}}</strong></td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length==0">
+  <div class="container">
+    <div class="card">
+      <h5 class="card-title">My cart</h5>
+    </div>
+    <div class="center">
+      <img src="https://img.freepik.com/free-vector/seasonal-sale-discounts-presents-purchase-visiting-boutiques-luxury-shopping-price-reduction-promotional-coupons-special-holiday-offers-vector-isolated-concept-metaphor-illustration_335657-2766.jpg?w=2000" width="300px" alt="">
+      <h4>You cart is empty!</h4>
+      <h6>Add item to it now</h6>
+      <button routerLink="/product" class="btn btn-primary">Shop Now</button>
+    </div>
+  </div>
+</ng-container>

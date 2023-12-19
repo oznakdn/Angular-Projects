@@ -1,0 +1,32 @@
+.container{
+  padding: 3em;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cards-container{
+  display: flex;
+  width: 100%;
+  padding-top: 5em;
+}
+
+.cards-form{
+  width: 50%;
+  padding:2em;
+}
+
+.cards-grid{
+  width: 50%;
+  padding: 2em;
+}
+
+.form-group{
+  margin-bottom: 1em;
+
+}
+.form-label{
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
